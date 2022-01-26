@@ -28,7 +28,6 @@
     <div>Loading, please wait...</div>
   </div>
 
-{% if name = 'trex' %}
   <a-scene
     vr-mode-ui="enabled: false;"
     renderer="logarithmicDepthBuffer: true;"
@@ -45,7 +44,7 @@
       smoothThreshold="5"
       >
         <a-entity
-          gltf-model="https://hmichael-08.github.io/cs50finalproject.github.io/trex/trex.gltf"
+          gltf-model="https://hmichael-08.github.io/cs50finalproject.github.io/trex/scene.gltf"
           scale="5 5 5"
           position="100 0 0"
           rotation="-90 0 0"
@@ -53,33 +52,8 @@
         </a-entity>
       </a-nft>
   <a-entity camera></a-entity>
-</a-scene>
-{% else %}
-    <a-scene
-      vr-mode-ui="enabled: false;"
-      renderer="logarithmicDepthBuffer: true;"
-      embedded
-      arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;"
-    >
-      <a-nft
-      type="nft"
-      url="https://hmichael-08.github.io/cs50finalproject.github.io/{{ name }}/{{ name }}"
-      smooth="true"
-      smoothCount="10"
-      smoothTolerance=".01"
-      smoothThreshold="5"
-      >
-      <a-entity
-      gltf-model="https://hmichael-08.github.io/cs50finalproject.github.io/{{ name }}.gltf"
-      scale="2 2 2"
-      position="100 0 0"
-      rotation="-90 0 0"
-      >
-      </a-entity>
-    </a-nft>
-  <a-entity camera></a-entity>
-</a-scene>
-{% endif %}
+  </a-scene>
+
 
 </body>
 
