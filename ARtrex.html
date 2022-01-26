@@ -27,6 +27,8 @@
   <div class="arjs-loader">
     <div>Loading, please wait...</div>
   </div>
+
+{% if name = 'trex' %}
   <a-scene
     vr-mode-ui="enabled: false;"
     renderer="logarithmicDepthBuffer: true;"
@@ -34,15 +36,6 @@
     arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;"
   >
     <!-- we use cors proxy to avoid cross-origin problems gltf-model="https://raw.githubusercontent.com/hmichael-08/hmichael-08.github.io/main/modelarch.gltf" -->
-
-    {% if name = 'trex' %}
-      <a-entity
-        gltf-model="https://hmichael-08.github.io/cs50finalproject.github.io/trex/trex.gltf"
-        scale="5 5 5"
-        position="100 0 0"
-        rotation="-90 0 0"
-      >
-
       <a-nft
       type="nft"
       url="https://hmichael-08.github.io/cs50finalproject.github.io/trex/trex-image/trex"
@@ -51,14 +44,23 @@
       smoothTolerance=".01"
       smoothThreshold="5"
       >
-    {% else %}
-      <a-entity
-      gltf-model="https://hmichael-08.github.io/cs50finalproject.github.io/{{ name }}.gltf"
-      scale="2 2 2"
-      position="100 0 0"
-      rotation="-90 0 0"
-      >
-
+        <a-entity
+          gltf-model="https://hmichael-08.github.io/cs50finalproject.github.io/trex/trex.gltf"
+          scale="5 5 5"
+          position="100 0 0"
+          rotation="-90 0 0"
+        >
+        </a-entity>
+      </a-nft>
+  <a-entity camera></a-entity>
+</a-scene>
+{% else %}
+    <a-scene
+      vr-mode-ui="enabled: false;"
+      renderer="logarithmicDepthBuffer: true;"
+      embedded
+      arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;"
+    >
       <a-nft
       type="nft"
       url="https://hmichael-08.github.io/cs50finalproject.github.io/{{ name }}/{{ name }}"
@@ -67,10 +69,17 @@
       smoothTolerance=".01"
       smoothThreshold="5"
       >
-    {% endif %}
+      <a-entity
+      gltf-model="https://hmichael-08.github.io/cs50finalproject.github.io/{{ name }}.gltf"
+      scale="2 2 2"
+      position="100 0 0"
+      rotation="-90 0 0"
+      >
       </a-entity>
     </a-nft>
-    <a-entity camera></a-entity>
-  </a-scene>
+  <a-entity camera></a-entity>
+</a-scene>
+{% endif %}
+
 </body>
 
